@@ -1,0 +1,55 @@
+$dark-color: #282828;
+$orange-color: #fe5f1f;
+$gray-color: #f0eeee;
+$proxima400: Proxima-Nova400;
+$proxima500: Proxima-Nova500;
+$proxima700: Proxima-Nova700;
+
+
+
+@mixin paragraph($theme: #000000, $text: center, $familiy:$proxima500, $size: 16px, $weight: 700) {
+    font-family: $familiy;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 19.49px;
+    letter-spacing: 0.015em;
+    text-align: $text;
+    color: $theme;
+}
+
+@mixin btn{
+    width: 132px;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid $orange-color;
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: $orange-color;
+    background-color: #fff;
+    font-family: $proxima500;
+    font-size: 16px;
+}
+
+button {
+    @include btn;
+    @include paragraph;
+    transition: 0.2s;
+    font-size: 15px;
+    width: max-content;
+    padding: 10px;
+    &:hover {
+        background-color: $orange-color;
+        color: #fff !important;
+    }
+    .count{
+        background-color: $orange-color;
+        border-radius: 50%;
+        color: #fff;
+        width: 23px;
+        height: 23px;
+        padding-top: 2px;
+    }
+}

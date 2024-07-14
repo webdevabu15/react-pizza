@@ -1,0 +1,329 @@
+$dark-color: #282828;
+$orange-color: #fe5f1f;
+$gray-color: #f0eeee;
+$proxima400: Proxima-Nova400;
+$proxima500: Proxima-Nova500;
+$proxima700: Proxima-Nova700;
+
+.logo {
+    padding: 0 80px;
+}
+
+.cart-cards {
+    max-width: 810px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 94px;
+    height: auto;
+    font-family: sans-serif;
+
+
+    .cart-cards_head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            letter-spacing: 1px;
+            line-height: 38px;
+        }
+
+        button {
+            height: 23px !important;
+            color: #B6B6B6 !important;
+            font-size: 16px !important;
+            font-weight: 400 !important;
+            font-family: sans-serif !important;
+            border: none !important;
+
+            &:hover {
+                background-color: #fff !important;
+                color: #282828 !important;
+            }
+        }
+
+
+    }
+
+    .cart-cards-wrapper {
+        height: max-content;
+        max-height: 400px; 
+        overflow: auto;
+
+        .cart-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 821px;
+            width: 100%;
+            border-top: 1px solid #f4f4f4;
+            padding: 30px 0;
+
+            .img-wrp {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                // justify-content: space-between;
+                max-width: 280px;
+                width: 100%;
+
+                img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                h3 {
+                    display: flex;
+                    flex-direction: column;
+
+                    span {
+                        font-family: sans-serif;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 21.92px;
+                        letter-spacing: 0.01em;
+                        color: #8D8D8D;
+                    }
+                }
+            }
+
+            .pizza-count {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                button {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    font-size: 18px;
+                    color: $orange-color;
+                    border: 1px solid $orange-color;
+                }
+            }
+
+            .pizza-price {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                button {
+                    width: max-content;
+                    border: 2px solid #D7D7D7;
+                    color: #D7D7D7;
+
+                    &:hover {
+                        background-color: #fff !important;
+                        border: 2px solid #D7D7D7 !important;
+                        color: #D7D7D7 !important;
+                        cursor: pointer;
+                    }
+
+                    svg {
+                        width: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.cleared-carts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    h2 {
+        font-family: sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38.98px;
+        letter-spacing: 0.01em;
+        text-align: left;
+
+    }
+
+    p {
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 26.17px;
+        letter-spacing: 0.01em;
+        text-align: center;
+        color: #777;
+    }
+
+    a {
+        width: 210px;
+        height: 46px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19.49px;
+        letter-spacing: 0.015em;
+        text-align: center;
+        font-family: sans-serif;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #282828;
+        margin-top: 20px;
+    }
+}
+
+.allpizza {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+
+    .all-count {
+        span {
+            font-weight: 700;
+            font-size: 17px;
+        }
+    }
+
+    .all-price {
+        span {
+            color: $orange-color;
+        }
+    }
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    .back-to-home {
+        width: 211px;
+        height: 55px;
+        border-style: solid;
+        border-color: #D3D3D3;
+        color: #777;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+    }
+    .back-to-home:hover{
+        background-color: #000;
+        color: #fff;
+        border: none;
+    }
+    .pay-now{
+        width: 211px;
+        height: 55px;
+        border-radius: 30px;
+        background-color: $orange-color;
+        color: #fff;
+    }
+}
+
+@media only screen and (max-width: 956px) {
+    .cart-cards{
+        padding: 0 20px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .img-wrp{
+        img{
+            width: 70px !important;
+            height: 70px !important;
+        }
+       h3{
+        font-size: 13px;
+        span{
+            font-size: 13px !important;
+        }
+       }
+    }
+}
+
+
+@media only screen and (max-width: 525px) {
+    .logo{
+        padding: 10px !important;
+    }
+    .cart-cards{
+        margin-top: 40px;
+        .cart-cards_head{
+            h3{
+                font-size: 13px;
+            }
+            .cart-btn{
+                font-size: 13px !important;
+            }
+        }
+    }
+    .img-wrp{
+        gap: 5px !important;
+        img{
+            width: 60px !important;
+            height: 60px !important;
+        }
+       h3{
+        font-size: 10px;
+        span{
+            font-size: 10px !important;
+        }
+       }
+    }
+    .pizza-count{
+        padding: 0 10px;
+    }
+    .btns{
+        .back-to-home{
+            width: 160px ;
+        }
+        .pay-now{
+            width: 160px !important;
+        }
+    }
+
+    .cleared-carts{
+        p{
+            font-size: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 360px) {
+
+    .img-wrp{
+        gap: 5px !important;
+        img{
+            width: 50px !important;
+            height: 50px !important;
+        }
+       h3{
+        font-size: 8px;
+        span{
+            font-size: 10px !important;
+        }
+       }
+    }
+    .pizza-count{
+        padding: 0 10px;
+    }
+    .btns{
+        .back-to-home{
+            width: 150px ;
+        }
+        .pay-now{
+            width: 150px !important;
+        }
+    }
+
+}

@@ -1,0 +1,294 @@
+$dark-color: #282828;
+$orange-color: #fe5f1f;
+$gray-color: #f0eeee;
+$proxima400: Proxima-Nova400;
+$proxima500: Proxima-Nova500;
+$proxima700: Proxima-Nova700;
+
+
+
+@mixin paragraph($theme: #000000, $text: center, $familiy:$proxima500, $size: 16px, $weight: 700) {
+    font-family: $familiy;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 19.49px;
+    letter-spacing: 0.015em;
+    text-align: $text;
+    color: $theme;
+}
+
+@mixin btn {
+    width: 132px;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid $orange-color;
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: $orange-color;
+    background-color: #fff;
+    font-family: $proxima500;
+    font-size: 16px;
+}
+
+.pizza-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    .pizza-items {
+        display: flex;
+        gap: 10px;
+
+        .pizza-item {
+            @include paragraph($text:start, $size:14px, $familiy: $proxima500);
+            background-color: $gray-color;
+            width: max-content;
+            padding: 10px 15px;
+            border-radius: 30px;
+            transition: 0.2s;
+
+            &:hover {
+                color: #fff;
+                background-color: $dark-color;
+            }
+        }
+    }
+
+
+}
+
+.all-pizza {
+    width: 100%;
+
+    .all-pizza-title {
+        margin: 35px 0;
+        @include paragraph($size: 32px, $text:start)
+    }
+
+    .pizza-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        gap: 35px;
+
+        .card {
+
+            h3 {
+                @include paragraph;
+                margin-bottom: 15px;
+            }
+
+            .pizza-settings {
+                background-color: #f3f3f3;
+                border-radius: 10px;
+                padding: 7px;
+
+                .sort-pizza {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: center;
+                    @include paragraph($size: 14px, $weight: 400, $familiy: sans-serif);
+
+                    p {
+                        max-width: max-content;
+                        padding: 10px 25px;
+                        width: 100%;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        transition: 0.2s;
+
+                        &:hover {
+                            background-color: #fff;
+                        }
+
+                        &.active {
+                            background: #ffffff;
+                            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+                            border-radius: 5px;
+                            cursor: auto;
+                        }
+
+                        &.disabled {
+                            opacity: 0.4;
+                            pointer-events: none;
+                        }
+
+
+                    }
+                }
+
+                .pizza-size {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-evenly;
+                    @include paragraph($size: 14px, $weight: 400, $familiy: sans-serif);
+                    margin-top: 7px;
+
+                    p {
+                        max-width: max-content;
+                        width: max-content;
+                        height: 32px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        padding: 0px 20px;
+
+                        &:hover {
+                            background-color: #fff;
+                            transition: 0.2s;
+                        }
+
+                        &.activeSize {
+                            background: #ffffff;
+                            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+                            border-radius: 5px;
+                            cursor: auto;
+                        }
+
+                        &.disabledSize {
+                            opacity: 0.4;
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+
+            .pizza-price {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 10px;
+                @include paragraph;
+
+
+            }
+        }
+    }
+}
+
+.active-item {
+    background-color: $dark-color !important;
+    color: #fff !important;
+}
+
+@media only screen and (max-width: 1300px) {
+    .all-pizza {
+        .pizza-cards {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .pizza-category {
+        flex-wrap: wrap;
+
+        .pizza-items {
+            flex-wrap: wrap;
+        }
+
+        .popular {
+            margin: 10px 0;
+        }
+    }
+
+    .all-pizza {
+        .pizza-cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .logo {
+        padding: 0;
+    }
+
+    .all-pizza {
+        .pizza-cards {
+            grid-template-columns: repeat(2, 1fr);
+
+            .card {
+                max-width: 280px;
+                width: 100%;
+
+                .pizza-size p {
+                    font-size: 14px !important;
+                    padding: 0 !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .logo {
+        padding: 0 !important;
+
+        .logo-info {
+            h2 {
+                font-size: 12px;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .all-pizza {
+        .pizza-cards {
+            grid-template-columns: repeat(2, 1fr);
+
+            .card {
+                img {
+                    width: 260px;
+                }
+
+                max-width: 240px;
+                width: 100%;
+
+                .pizza-size p {
+                    font-size: 12px !important;
+                    padding: 0 !important;
+                }
+
+                .sort-pizza {
+                    p {
+                        font-size: 12px;
+                        gap: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .popular{
+        h3{
+            font-size: 14px;
+        }
+    }
+
+    .logo {
+        .logo-info {
+            display: none !important;
+        }
+    }
+    .all-pizza {
+        .pizza-cards {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            justify-items: center;
+        }
+    }
+}

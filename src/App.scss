@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Proxima-Nova400;
+    src: url(./fonts/proxima400.otf);
+}
+@font-face {
+    font-family: Proxima-Nova500;
+    src: url(./fonts/proxima500.otf);
+}
+@font-face {
+    font-family: Proxima-Nova700;
+    src: url(./fonts/proxima700.otf);
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+  max-width: 1260px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 20px;
+} 

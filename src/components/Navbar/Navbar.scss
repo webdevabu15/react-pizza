@@ -1,0 +1,65 @@
+$dark-color: #282828;
+$orange-color: #fe5f1f;
+$gray-color: #f0eeee;
+$proxima400: Proxima-Nova400;
+$proxima500: Proxima-Nova500;
+$proxima700: Proxima-Nova700;
+
+
+
+@mixin paragraph($theme: #000000, $text: center, $familiy:$proxima500, $size: 16px, $weight: 700) {
+    font-family: $familiy;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 19.49px;
+    letter-spacing: 0.015em;
+    text-align: $text;
+    color: $theme;
+}
+  
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $gray-color;
+    .logo{
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        h2{
+          @include paragraph($text: start);
+          text-transform: uppercase;
+        }
+        p{
+            @include paragraph($theme:#c0bfbfc1 ,$text: start, $familiy:$proxima500, $size:14px, $weight: 400)
+        }
+    }
+    .cart-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $orange-color;
+        padding: 10px;
+        max-width: 150px;
+        width: 100%;
+        height: 50px;
+        gap: 10px;
+        border-radius: 30px;
+        color: #fff;
+        font-family: $proxima400;
+        transition: 0.2s;
+        p{
+            border-right: 1px solid rgb(241, 149, 87);
+            padding-right: 10px;
+            letter-spacing: 1.5px;
+        }
+    }
+    .cart-wrapper:hover{
+        opacity: 80%;
+    }
+}
+
+a{
+    text-decoration: none;
+}

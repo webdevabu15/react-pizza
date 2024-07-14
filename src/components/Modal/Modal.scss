@@ -1,0 +1,87 @@
+$dark-color: #282828;
+$orange-color: #fe5f1f;
+$gray-color: #f0eeee;
+$proxima400: Proxima-Nova400;
+$proxima500: Proxima-Nova500;
+$proxima700: Proxima-Nova700;
+
+@mixin paragraph($theme: #000000, $text: center, $familiy:$proxima500, $size: 16px, $weight: 700) {
+    font-family: $familiy;
+    font-size: $size;
+    font-weight: $weight;
+    line-height: 19.49px;
+    letter-spacing: 0.015em;
+    text-align: $text;
+    color: $theme;
+}
+
+@mixin btn{
+    width: 132px;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid $orange-color;
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    color: $orange-color;
+    background-color: #fff;
+    font-family: $proxima500;
+    font-size: 16px;
+}
+
+.popular {
+    display: flex;
+    @include paragraph($size:14px, );
+    position: relative;
+
+    svg {
+        font-size: 20px;
+    }
+
+    span {
+        color: $orange-color;
+        padding-bottom: 1px;
+        border-bottom: 1px solid $orange-color;
+        cursor: pointer;
+    }
+    .modal {
+        width: 132px;
+        height: 136px;
+        background-color: #fff;
+        text-align: left;
+        position: absolute;
+        right: 0;
+        top: 25px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 23px -1px rgba(0,0,0,0.07);
+        -webkit-box-shadow: 10px 10px 23px -1px rgba(0,0,0,0.07);
+        -moz-box-shadow: 10px 10px 23px -1px rgba(0,0,0,0.07);
+    
+        ul {
+            list-style: none;
+            padding: 10px 0;
+    
+            li {
+                padding: 10px;
+                transition: 0.3s;
+                cursor: pointer;
+    
+                &:hover {
+                    background-color: #fff7f4;
+                    color: $orange-color;
+                }
+    
+            }
+        }
+    }
+
+}
+
+
+
+.active-list{
+    background-color: #fff7f4 !important;
+    color: $orange-color !important;
+}

@@ -1,0 +1,106 @@
+{
+    "pizzas": [
+      {
+        "id": 0,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D627EDDDCD6851CB89CEFB18C47.avif",
+        "name": "Чоризо Фреш",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 803,
+        "category": 0,
+        "rating": 4
+      },
+      {
+        "id": 1,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE8974C91F2ED3AA9A78498AE85662.avif",
+        "name": "Сырная",
+        "types": [
+          1
+        ],
+        "sizes": [26, 40],
+        "price": 245,
+        "category": 1,
+        "rating": 6
+      },
+      {
+        "id": 2,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE896933E2F8CDBF02BEA35056337B.avif",
+        "name": "Цыпленок барбекю",
+        "types": [1],
+        "sizes": [26, 40],
+        "price": 295,
+        "category": 1,
+        "rating": 4
+      },
+      {
+        "id": 3,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE7D6272AECAE781CA60DC3F81E505.avif",
+        "name": "Вулкан",
+        "types": [0],
+        "sizes": [26, 30, 40],
+        "price": 275,
+        "category": 2,
+        "rating": 2
+      },
+      {
+        "id": 4,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EED73C6B01E9ECAB89410716435740.avif",
+        "name": "Чизбургер-пицца",
+        "types": [0,1],
+        "sizes": [26, 30, 40],
+        "price": 415,
+        "category": 3,
+        "rating": 8
+      },
+      {
+        "id": 5,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EEE2055E453B02B4A1EF7740BC4BB3.avif",
+        "name": "Крэйзи пепперони",
+        "types": [1],
+        "sizes": [30, 40],
+        "price": 580,
+        "category": 2,
+        "rating": 2
+      },
+      {
+        "id": 6,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE897382FE407EB533708A14B5D5BC.avif",
+        "name": "Пепперони",
+        "types": [0,1],
+        "sizes": [26, 30, 40],
+        "price": 675,
+        "category": 1,
+        "rating": 9
+      },
+      {
+        "id": 7,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE89722ED2D2F992155A94FA4D383A.avif",
+        "name": "Маргарита",
+        "types": [0,1],
+        "sizes": [26, 30, 40],
+        "price": 450,
+        "category": 4,
+        "rating": 10
+      },
+      {
+        "id": 8,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EE9F160940C1869F2BDA5BD77E4E88.avif",
+        "name": "Четыре сыра",
+        "types": [0,1],
+        "sizes": [26, 30, 40],
+        "price": 395,
+        "category": 5,
+        "rating": 10
+      },
+      {
+        "id": 9,
+        "imageUrl": "https://media.dodostatic.net/image/r:292x292/11EED73AC8E9EEC7AA6CA76132E898C5.avif",
+        "name": "Пицца-пирог",
+        "types": [0,1],
+        "sizes": [26, 30, 40],
+        "price": 285,
+        "category": 5,
+        "rating": 7
+      }
+    ]
+  }
