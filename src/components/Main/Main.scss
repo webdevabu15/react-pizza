@@ -221,10 +221,15 @@ $proxima700: Proxima-Nova700;
             .card {
                 max-width: 280px;
                 width: 100%;
+                .pizza-settings .sort-pizza{
+                    p{
+                        padding: 10px 20px;
+                    }
+                }
 
                 .pizza-size p {
                     font-size: 14px !important;
-                    padding: 0 !important;
+                    padding: 5px !important;
                 }
             }
         }
