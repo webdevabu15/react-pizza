@@ -9,9 +9,10 @@ import "./Navbar.scss"
 
 const Navbar = () => {
     const {cart} = useSelector(state => state)
+    
   return (
     <div className='container'>
-        <nav>
+        <nav className='nav'>
             <div className="logo">
                 <img src={Logo} alt="" />
                 <div className="logo-info">

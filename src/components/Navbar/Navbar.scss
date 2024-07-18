@@ -16,7 +16,11 @@ $proxima700: Proxima-Nova700;
     text-align: $text;
     color: $theme;
 }
-  
+
+.nav{
+    position: fixed;
+}
+
 nav{
     display: flex;
     justify-content: space-between;

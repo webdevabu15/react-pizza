@@ -8,7 +8,6 @@ import axios from 'axios'
 export const fetchPizzas = (setCategory,sortBy) => (dispatch) => {
     axios.get(`http://localhost:3000/pizzas${setCategory == null ? `?_sort=-${sortBy.type}&_order=-${sortBy.order}` : `?category=${setCategory}&_sort=-${sortBy.type}&_order=-${sortBy.order}` }`).then(({data}) => {
         dispatch(setPizza(data))
-        console.log(setCategory,sortBy);
     })
 }
 
@@ -26,17 +25,20 @@ export const clearCart = () => ({
   type: 'CLEAR_CART'
 })
 
-export const removeCartItem = (id) => ({
+export const removeCartItem = (item) => ({
     type:"REMOVE_CART_ITEM",
-    payload: id,
+    payload: item,
 })
 
-export const plusCartItem = (id) => ({
+export const plusCartItem = (item) => ({
   type: 'PLUS_CART_ITEM',
-  payload: id,
+  payload: item,
 });
 
-export const minusCartItem = (id) => ({
+export const minusCartItem = (item) => ({
   type: 'MINUS_CART_ITEM',
-  payload: id,
-});
+  payload: item
+  
+}
+);
+

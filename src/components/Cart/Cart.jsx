@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Navbar from "../Navbar/Navbar";
 import Logo from "../../assets/logo.svg";
 import { IoCartOutline } from "react-icons/io5";
 import { PiTrashLight } from "react-icons/pi";
@@ -15,12 +14,15 @@ import {
 import cartMan from "../../assets/cart-man.svg";
 import "./Cart.scss";
 
+
+
 const Cart = () => {
-  const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
   const dispatch = useDispatch();
+  const {totalCount, items } = useSelector(({ cart }) => cart);
   const addedPizzas = Object.keys(items).map((key) => {
-    return items[key].items[0];
+    return items[key].items;
   });
+  
 
   const clearALLCarts = () => {
     if (window.confirm(`Вы действительно хотите очистить корзину?`)) {
@@ -28,23 +30,25 @@ const Cart = () => {
     }
   };
 
-  const onRemoveItem = (id) => {
+  const onRemoveItem = (item) => {
     if (window.confirm("Вы действительно хотите удалить?")) {
-      dispatch(removeCartItem(id));
+      dispatch(removeCartItem(item));
     }
   };
-  const onPlusItem = (id) => {
-    dispatch(plusCartItem(id));
+  const onPlusItem = (item) => {
+    dispatch(plusCartItem(item));
   };
 
-  const onMinusItem = (id) => {
-    dispatch(minusCartItem(id));
+  const onMinusItem = (item) => {
+    dispatch(minusCartItem(item));
   };
 
   const { cart } = useSelector((state) => state);
+  
   const payNow = () => {
-    alert('hammasi sotildi 😎')
-  }
+    alert("hammasi sotildi 😎");
+  };
+
   return (
     <>
       <nav>
@@ -68,22 +72,31 @@ const Cart = () => {
             </button>
           </div>
           <div className="cart-cards-wrapper">
-            {addedPizzas.map((obj) => (
-              <CartItem
-                img={obj.imageUrl}
-                key={obj.id}
-                id={obj.id}
-                name={obj.name}
-                type={obj.type}
-                size={obj.size}
-                totalPrice={items[obj.id].totalPrice}
-                totalCount={items[obj.id].items.length}
-                onRemove={onRemoveItem}
-                onPlus={onPlusItem}
-                onMinus={onMinusItem}
-              />
-            ))}
+            {addedPizzas.map((countedObj) =>
+              Object.values(countedObj).map((item,i) => {
+                return(
+
+                  <CartItem
+                    item={item}
+                    index={i}
+                    img={item.imageUrl}
+                    key={`${item.id}-${item.size}-${item.type}`}
+                    id={item.id}
+                    name={item.name}
+                    type={item.type}
+                    size={item.size}
+                    totalPrice={item.totalPrice}
+                    count={item.count} 
+                    onRemove={onRemoveItem}
+                    onPlus={onPlusItem}
+                    onMinus={onMinusItem}
+                  />
+                )
+              }
+              )
+            )}
           </div>
+          <div className="wrapper-pay">
           <div className="allpizza">
             <p className="all-count">
               Всего пицц: <span>{cart.totalCount} шт.</span>
@@ -96,9 +109,12 @@ const Cart = () => {
             <Link to="/" className="back-to-home">
               <span>{`< Вернуться назад`}</span>
             </Link>
-            <button onClick={payNow} className="pay-now">Оплатить сейчас</button>
+            <button onClick={payNow} className="pay-now">
+              Оплатить сейчас
+            </button>
           </div>
         </div>
+          </div>
       ) : (
         <div className="cleared-carts">
           <h2>

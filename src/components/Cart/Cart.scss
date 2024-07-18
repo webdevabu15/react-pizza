@@ -5,18 +5,30 @@ $proxima400: Proxima-Nova400;
 $proxima500: Proxima-Nova500;
 $proxima700: Proxima-Nova700;
 
+
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    margin: 0;
+    padding: 30px;
+    z-index: 2;
+}
+
 .logo {
     padding: 0 80px;
 }
+
 
 .cart-cards {
     max-width: 810px;
     width: 100%;
     margin: 0 auto;
-    margin-top: 94px;
     height: auto;
     font-family: sans-serif;
-
+    margin-top: 40px;
 
     .cart-cards_head {
         display: flex;
@@ -34,7 +46,7 @@ $proxima700: Proxima-Nova700;
         button {
             height: 23px !important;
             color: #B6B6B6 !important;
-            font-size: 16px !important;
+            font-size: 16px;
             font-weight: 400 !important;
             font-family: sans-serif !important;
             border: none !important;
@@ -49,9 +61,7 @@ $proxima700: Proxima-Nova700;
     }
 
     .cart-cards-wrapper {
-        height: max-content;
-        max-height: 400px; 
-        overflow: auto;
+        margin-bottom: 150px;
 
         .cart-card {
             display: flex;
@@ -66,7 +76,6 @@ $proxima700: Proxima-Nova700;
                 display: flex;
                 align-items: center;
                 gap: 15px;
-                // justify-content: space-between;
                 max-width: 280px;
                 width: 100%;
 
@@ -78,6 +87,7 @@ $proxima700: Proxima-Nova700;
                 h3 {
                     display: flex;
                     flex-direction: column;
+                    font-size: 20px;
 
                     span {
                         font-family: sans-serif;
@@ -157,6 +167,11 @@ $proxima700: Proxima-Nova700;
         letter-spacing: 0.01em;
         text-align: center;
         color: #777;
+        width: 100%;
+    }
+
+    img {
+        width: 300px;
     }
 
     a {
@@ -180,9 +195,13 @@ $proxima700: Proxima-Nova700;
 
 .allpizza {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px 0;
+
+    p {
+        font-size: 18px;
+    }
 
     .all-count {
         span {
@@ -200,11 +219,12 @@ $proxima700: Proxima-Nova700;
 
 .btns {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
+
     .back-to-home {
-        width: 211px;
+        width: 211px !important;
         height: 55px;
         border-style: solid;
         border-color: #D3D3D3;
@@ -215,13 +235,15 @@ $proxima700: Proxima-Nova700;
         justify-content: center;
         transition: 0.2s;
     }
-    .back-to-home:hover{
+
+    .back-to-home:hover {
         background-color: #000;
         color: #fff;
         border: none;
     }
-    .pay-now{
-        width: 211px;
+
+    .pay-now {
+        width: 211px !important;
         height: 55px;
         border-radius: 30px;
         background-color: $orange-color;
@@ -229,100 +251,210 @@ $proxima700: Proxima-Nova700;
     }
 }
 
+.wrapper-pay {
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 2;
+    padding: 40px;
+    padding-top: 0;
+}
+
 @media only screen and (max-width: 956px) {
-    .cart-cards{
+    .cart-cards {
         padding: 0 20px;
     }
 }
 
 
 @media only screen and (max-width: 600px) {
-    .img-wrp{
-        img{
+    .img-wrp {
+        img {
             width: 70px !important;
             height: 70px !important;
         }
-       h3{
-        font-size: 13px;
-        span{
-            font-size: 13px !important;
+
+        h3 {
+            font-size: 13px;
+
+            span {
+                font-size: 13px !important;
+            }
         }
-       }
     }
 }
 
 
 @media only screen and (max-width: 525px) {
-    .logo{
+    .logo {
         padding: 10px !important;
-    }
-    .cart-cards{
-        margin-top: 40px;
-        .cart-cards_head{
-            h3{
-                font-size: 13px;
-            }
-            .cart-btn{
-                font-size: 13px !important;
-            }
+
+        .logo-info {
+            display: inline-block !important;
         }
     }
-    .img-wrp{
+
+    .cart-cards_head {
+        h3 {
+            font-size: 13px;
+        }
+
+        .cart-btn {
+            font-size: 13px;
+        }
+    }
+
+    .img-wrp {
         gap: 5px !important;
-        img{
+
+        img {
             width: 60px !important;
             height: 60px !important;
         }
-       h3{
-        font-size: 10px;
-        span{
+
+        h3 {
             font-size: 10px !important;
+
+            span {
+                font-size: 10px !important;
+            }
         }
-       }
     }
-    .pizza-count{
+
+    .pizza-count {
         padding: 0 10px;
     }
-    .btns{
-        .back-to-home{
-            width: 160px ;
+
+    .btns {
+        .back-to-home {
+            width: 160px;
         }
-        .pay-now{
-            width: 160px !important;
+
+        .pay-now {
+            width: 160px;
         }
     }
 
-    .cleared-carts{
-        p{
-            font-size: 15px;
+    .cleared-carts {
+        margin-top: 50px;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 12px;
+            line-height: 1;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 200px;
+            // height: 300px;
+        }
+
+
+    }
+
+    .allpizza {
+        justify-content: space-between;
+
+        p {
+            font-size: 13px;
         }
     }
+
+    .btns {
+        justify-content: space-between;
+
+        a {
+            width: 130px;
+            font-size: 13px;
+        }
+
+        .pay-now {
+            width: 130px;
+            font-size: 13px;
+        }
+    }
+
 }
 
-@media only screen and (max-width: 360px) {
 
-    .img-wrp{
+@media only screen and (max-width: 374px) {
+    .cart-cards {
+        margin-top: 30px;
+    }
+
+    .cart-cards .cart-cards-wrapper .cart-card .img-wrp {
         gap: 5px !important;
-        img{
+
+        img {
             width: 50px !important;
             height: 50px !important;
         }
-       h3{
-        font-size: 8px;
-        span{
-            font-size: 10px !important;
+
+        h3 {
+            font-size: 8px !important;
+            line-height: 1;
+
+            span {
+                font-size: 5px !important;
+                line-height: 1.5;
+            }
         }
-       }
     }
-    .pizza-count{
+
+    .cart-cards .cart-cards-wrapper .cart-card .pizza-count {
         padding: 0 10px;
-    }
-    .btns{
-        .back-to-home{
-            width: 150px ;
+
+        button {
+            width: 20px;
+            height: 20px;
         }
-        .pay-now{
-            width: 150px !important;
+    }
+
+    .cart-cards .cart-cards-wrapper .cart-card .pizza-price {
+        p {
+            font-size: 10px;
+        }
+
+        button {
+            //    width: 20px;
+            height: 20px;
+
+            svg {
+                width: 10px;
+                // height: 100%;
+                // font-size: 10px;
+            }
+        }
+    }
+
+    .cart-cards .cart-cards_head button {
+        font-size: 10px;
+    }
+
+    .cleared-carts {
+        justify-content: start;
+    }
+
+    .wrapper-pay {
+        padding: 10px;
+    }
+
+    .btns {
+        .back-to-home {
+            width: 120px !important;
+            font-size: 10px;
+        }
+
+        .pay-now {
+            width: 120px !important;
+            font-size: 10px;
         }
     }
 

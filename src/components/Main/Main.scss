@@ -37,7 +37,8 @@ $proxima700: Proxima-Nova700;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 170px;
+
 
     .pizza-items {
         display: flex;
@@ -74,6 +75,7 @@ $proxima700: Proxima-Nova700;
         grid-template-columns: repeat(4, 1fr);
         text-align: center;
         gap: 35px;
+        margin-bottom: 50px;
 
         .card {
 
@@ -258,7 +260,6 @@ $proxima700: Proxima-Nova700;
 
                 .pizza-size p {
                     font-size: 12px !important;
-                    padding: 0 !important;
                 }
 
                 .sort-pizza {
@@ -273,8 +274,8 @@ $proxima700: Proxima-Nova700;
 }
 
 @media only screen and (max-width: 550px) {
-    .popular{
-        h3{
+    .popular {
+        h3 {
             font-size: 14px;
         }
     }
@@ -284,11 +285,38 @@ $proxima700: Proxima-Nova700;
             display: none !important;
         }
     }
+
     .all-pizza {
         .pizza-cards {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
             justify-items: center;
         }
+    }
+
+    .all-pizza {
+        .pizza-cards {
+            .card {
+                .pizza-size p {
+                    font-size: 10px !important;
+                    padding: 5px !important;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:440px) {
+    nav {
+        padding: 10px 0 !important;
+    }
+
+    .logo .logo-info p {
+        font-size: 10px !important;
+        line-height: 1;
+    }
+
+    .pizza-category {
+        margin-top: 100px;
     }
 }

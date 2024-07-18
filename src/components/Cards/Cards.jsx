@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button.jsx";
 import classNames from "classnames";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/action/addToCard.js";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 
 const Cards = ({
   addedCount,
@@ -13,21 +12,20 @@ const Cards = ({
   types,
   sizes,
   price,
-  onClickAddPizza,
+  onClickAddPizza
 }) => {
   const availableType = ["тонкое", "традиционное"];
   const availableSize = [26, 30, 40];
   const [activeType, setActiveType] = useState(types[0]);
-  const [activeSize, setActiveSize] = useState(sizes[0]);
+  const [activeSize, setActiveSize] = useState(availableSize.indexOf(sizes[0]));
 
   const onSelectType = (index) => {
-    setActiveType(index);
+    setActiveType(index );
   };
 
   const onSelectSize = (index) => {
     setActiveSize(index);
   };
-  const cart = useSelector((state) => state);
 
   const onAddPizza = () => {
     const obj = {
@@ -38,12 +36,13 @@ const Cards = ({
       size: availableSize[activeSize],
       type: availableType[activeType],
     };
-    console.log(obj);
+
     onClickAddPizza(obj);
   };
 
+
   return (
-    <div className="card">
+    <div className="card" id={id}>
       <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
       <div className="pizza-settings">
