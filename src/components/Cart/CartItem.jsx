@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { IoClose } from "react-icons/io5";
-// import Button from "../Button/Button";
+import {useSelector} from 'react-redux'
 const CartItem = ({
   img,
   key,
@@ -8,23 +8,31 @@ const CartItem = ({
   name,
   type,
   size,
-  totalPrice,
-  totalCount,
+  count,
   onRemove,
   onPlus,
   onMinus,
+  item,
+
 }) => {
-  console.log(img);
+
   const handleRemoveClick = () => {
-    onRemove(id);
+    onRemove(item);
   };
   const handlePlusItem = () => {
-    onPlus(id);
+    onPlus(item);
   };
 
   const handleMinusItem = () => {
-    onMinus(id);
+
+    onMinus(item);
   };
+
+  const totalPrice = useMemo(() => {
+    return count * item.price
+  },[count])
+
+const state = useSelector(state =>  state)
 
   return (
     <>
@@ -37,7 +45,7 @@ const CartItem = ({
         </div>
         <div className="pizza-count">
           <button onClick={handleMinusItem}>-</button>
-          <p>{totalCount}</p>
+          <p>{count}</p>
           <button onClick={handlePlusItem}>+</button>
         </div>
         <div className="pizza-price">

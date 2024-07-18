@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   fetchPizzas,
   setCategory,
-  setSortBy,
 } from "../../redux/action/addToCard.js";
 import Modal from "../Modal/Modal.jsx";
 import Cards from "../Cards/Cards.jsx";
-import { category } from "../contains/contains.ts";
+import { AllPizza, category } from "../contains/contains.ts";
+
 import "./Main.scss";
 
 const Main = () => {
@@ -15,12 +15,11 @@ const Main = () => {
   const AllPizza = useSelector((state) => state.data.data);
   const stateCategory = useSelector((state) => state.filters.category);
   const sortBy = useSelector((state) => state.filters.sortBy);
-  const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPizzas(stateCategory,sortBy));
-  }, [dispatch,stateCategory,sortBy]);
+    dispatch(fetchPizzas(stateCategory, sortBy));
+  }, [dispatch, stateCategory, sortBy]);
 
   const onSelectCategory = React.useCallback((index) => {
     setIsActiveItem(index);
@@ -32,13 +31,23 @@ const Main = () => {
     { name: "цене", type: "price", order: "desc" },
     { name: "алфавит", type: "name", order: "asc" },
   ];
+  const { items } = useSelector(({ cart }) => cart);
 
   const handleAddPizzaToCart = (obj) => {
     dispatch({
-      type: 'ADD_PIZZA_CART',
-      payload: obj,
+      type: "ADD_PIZZA_CART",
+      payload: { ...obj, count: 0 },
     });
   };
+
+  let a = Object.values(items)
+    .map((item, i) => item.items)
+    .flat()
+    .map((item) => item);
+
+  let b = Object.values(items).map((item, i) => item.totalCount);
+  let id = AllPizza.map((item) => item.id);
+  console.log();
 
   return (
     <div className="container">
@@ -69,19 +78,24 @@ const Main = () => {
       <div className="all-pizza">
         <h2 className="all-pizza-title">Все пиццы</h2>
         <div className="pizza-cards">
-          {AllPizza && AllPizza.map((item, index) => (
-            <Cards
-              id={item.id}
-              price={item.price}
-              sizes={item.sizes}
-              name={item.name}
-              imageUrl={item.imageUrl}
-              types={item.types}
-              onClickAddPizza={handleAddPizzaToCart}
-              addedCount={cartItems[item.id] && cartItems[item.id].items.length}
-              
-            />
-          ))}
+          {AllPizza &&
+            AllPizza.map((item, index) => {
+              return (
+                <Cards
+                  id={item.id}
+                  price={item.price}
+                  sizes={item.sizes}
+                  name={item.name}
+                  imageUrl={item.imageUrl}
+                  types={item.types}
+                  onClickAddPizza={handleAddPizzaToCart}
+                  addedCount={a.reduce(
+                    (sum, el) => (el.id === item.id ? (sum += el.count) : sum),
+                    0
+                  )}
+                />
+              );
+            })}
         </div>
       </div>
     </div>

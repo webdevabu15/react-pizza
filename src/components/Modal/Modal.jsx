@@ -1,19 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { IoMdArrowDropup } from "react-icons/io";
-import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
 import "./Modal.scss";
 import { setSortBy } from "../../redux/action/addToCard";
 
 const Modal = ({ activeSortType, popularArr }) => {
   const [isActiveItem, setIsActiveItem] = useState(0);
   const [isModal, setIsModal] = useState(false);
-  const activeLabel = popularArr.find(obj => obj.type === activeSortType.type);
+  const activeLabel = popularArr.find(
+    (obj) => obj.type === activeSortType.type
+  );
   const sortRef = useRef();
-  const state = useSelector(state => state);
+  const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  
-
 
   const handleClick = () => {
     setIsModal(!isModal);
@@ -26,14 +26,14 @@ const Modal = ({ activeSortType, popularArr }) => {
   };
 
   useEffect(() => {
-    document.body.addEventListener('click', handleOutsideClick);
+    document.body.addEventListener("click", handleOutsideClick);
     return () => {
-      document.body.removeEventListener('click', handleOutsideClick);
+      document.body.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
   const onSelectItem = (type, order) => {
-    dispatch(setSortBy({type,order}));
+    dispatch(setSortBy({ type, order }));
     setIsModal(false);
   };
 
@@ -51,7 +51,9 @@ const Modal = ({ activeSortType, popularArr }) => {
               <li
                 key={index} // qo'shilgan key
                 onClick={() => onSelectItem(item.type, item.order)}
-                className={`${activeSortType.type === item.type ? "active-list" : ""}`}
+                className={`${
+                  activeSortType.type === item.type ? "active-list" : ""
+                }`}
               >
                 {item.name}
               </li>
@@ -65,11 +67,13 @@ const Modal = ({ activeSortType, popularArr }) => {
 
 Modal.propTypes = {
   activeSortType: PropTypes.object.isRequired,
-  popularArr: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    order: PropTypes.string.isRequired,
-  })).isRequired,
+  popularArr: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      order: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Modal;
