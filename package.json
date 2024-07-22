@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.2",
     "classnames": "^2.5.1",
+    "firebase": "^10.12.4",
+    "firebase-tools": "^13.13.3",
     "json-server": "^1.0.0-beta.1",
     "normalize-scss": "^8.0.0",
     "prop-types": "^15.8.1",
@@ -25,7 +27,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "nodemon --watch db.json --ext json,json server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -6,7 +6,7 @@ import {
 } from "../../redux/action/addToCard.js";
 import Modal from "../Modal/Modal.jsx";
 import Cards from "../Cards/Cards.jsx";
-import { AllPizza, category } from "../contains/contains.ts";
+import { category } from "../contains/contains.ts";
 
 import "./Main.scss";
 
@@ -16,6 +16,7 @@ const Main = () => {
   const stateCategory = useSelector((state) => state.filters.category);
   const sortBy = useSelector((state) => state.filters.sortBy);
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(fetchPizzas(stateCategory, sortBy));
@@ -27,7 +28,7 @@ const Main = () => {
   }, []);
 
   const popularArr = [
-    { name: "популярности", type: "popular", order: "desc" },
+    { name: "популярности", type: "rating", order: "desc" },
     { name: "цене", type: "price", order: "desc" },
     { name: "алфавит", type: "name", order: "asc" },
   ];
