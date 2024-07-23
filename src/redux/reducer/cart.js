@@ -88,7 +88,7 @@ const cart = (state = initialState, action) => {
 
     case "REMOVE_CART_ITEM": {
       const { id, type, size, price } = action.payload;
-    
+      console.log(id, size);
       const newItems = { ...state.items };
 
       if (newItems[id]) {
@@ -97,8 +97,10 @@ const cart = (state = initialState, action) => {
             !(item.type === type && item.size === size && item.price === price, console.log(item))
             
         );
+        console.log(updatedItems.length === 0);
+
     
-        if (updatedItems.length === 0) {
+        if (updatedItems.length !== 0) {
           delete newItems[id];
         } else {
           newItems[id] = {
@@ -117,7 +119,7 @@ const cart = (state = initialState, action) => {
           totalPrice += item.count * item.price;
         })
       })
-    
+      console.log(newItems);
       return {
         ...state,
         items: newItems,

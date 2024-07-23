@@ -6,31 +6,6 @@ export const setPizza = (item) => ({
   payload: item,
 });
 
-// export const fetchPizzas = (setCategory, sortBy) => async (dispatch) => {
-//   try {
-//     let q;
-//     console.log(setCategory);
-//     if (setCategory == null) {
-//       q = query(collection(db, "pizzas"), orderBy(sortBy.type, sortBy.order));
-//     } else {
-//       q = query(
-//         collection(db, "pizzas"),
-//         where("category", "==", setCategory)
-//       );
-//     }
-//     console.log(q);
-
-//     const dataDb = await getDocs(q);
-//     const allData = dataDb.docs.map((val) => ({ ...val.data() }));
-
-//     dispatch(setPizza(allData));
-    
-//   } catch (error) {
-//     console.error("Pizzalarni olishda xato:", error);
-//   }
-// };
-
-
 export const fetchPizzas = (setCategory, sortBy) => async (dispatch) => {
   try {
     let q;
@@ -48,13 +23,6 @@ export const fetchPizzas = (setCategory, sortBy) => async (dispatch) => {
     console.error("Pizzalarni olishda xato:", error);
   }
 };
-
-// export const fetchPizzas = (setCategory,sortBy) => (dispatch) => {
-//   console.log(setCategory,sortBy);
-//   axios.get(`http://localhost:3000/pizzas${setCategory == null ? `?_sort=-${sortBy.type}&_order=-${sortBy.order}` : `?category=${setCategory}&_sort=-${sortBy.type}&_order=-${sortBy.order}` }`).then(({data}) => {
-//       dispatch(setPizza(data))
-//   })
-// }
 
 export const setSortBy = ({ type, order }) => ({
   type: "SET_SORT_BY",
